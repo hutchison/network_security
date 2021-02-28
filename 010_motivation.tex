@@ -9,3 +9,127 @@
   Die Verbindungen zwischen den Knoten basieren auf physisch verkabelten, optischen, und
   kabellosen Methoden.
 \end{definition}
+
+Computer sind angreifbar; ein vernetztes System ist um ein Vielfaches angreifbarer.
+Es ist unmöglich alle Computer im Internet abzusichern, aber es ist sinnvoll und machbar
+die eigenen Computer abzusichern.
+
+\begin{definition}[Intranet]
+  Ein \emph{Intranet} ist ein eine Menge von Netzwerken, die von einer einzelnen
+  administrativen Einheit kontrolliert wird.
+\end{definition}
+
+\subsection{Typen, Motivationen, Fähigkeiten von Angreifern}%
+\label{sub:typen_motivationen_fahigkeiten_von_angreifern}
+
+Einzelne Angreifer
+\begin{itemize}
+  \item mit einem bestimmten sozialen Hintergrund,
+  \item werden angetrieben durch Publicity,
+  \item möchten eventuell politische Statements setzen,
+  \item nehmen nur geringe Risiken auf.
+\end{itemize}
+Organisierte Verbrecher
+\begin{itemize}
+  \item werden angetrieben durch Geld,
+  \item nehmen mittlere Risiken auf.
+\end{itemize}
+Terroristen
+\begin{itemize}
+  \item sind politisch und sozial motiviert,
+  \item wollen kein Geld,
+  \item nehmen hohe Risiken auf (bis zur Lebensgefahr),
+  \item wollen zerstören oder verwirren.
+\end{itemize}
+Konkurrenten
+\begin{itemize}
+  \item wollen Informationen stehlen oder zerstören,
+  \item bemessen die aufgenommene Risiken nach dem Wert der Informationen.
+\end{itemize}
+Regierungsorganisationen
+\begin{itemize}
+  \item betreiben Industriespionage für heimische Unternehmen,
+  \item betreiben Militärspionage und hybride Kriegsführung
+\end{itemize}
+
+\subsection{Angriffe auf Computer}%
+\label{sub:angriffe_auf_computer}
+
+\textbf{Stehlen von Informationen}, aufgrund von
+\begin{itemize}
+  \item Wettbewerbsvorteile erlangen,
+  \item Peinlichkeiten erzeugen,
+  \item Erpressung
+\end{itemize}
+\textbf{Zerstörungen} für
+\begin{itemize}
+  \item Spaß und Selbstverherrlichung
+  \item politische Botschaften
+\end{itemize}
+\textbf{Sammeln von Informationen}, die an den Angreifer gesendet werden.
+Angreifer brauchen Zugang durch
+\begin{itemize}
+  \item social engineering
+  \item Viren, Trojaner, Würmer
+  \item physisches Stehlen von Speichermedien
+  \item sniffing
+\end{itemize}
+
+\textbf{Viren} infizieren Dateien oder auch das ganze System bzw. den boot record.
+
+\textbf{Würmer} verteilen sich durch E-Mails und haben als Payload bspw. einen Virus oder
+Trojaner.
+Netzwerk-Würmer verteilen sich durch das Ausnutzen von bekannten Softwareschwachstellen
+(z.\,B. buffer overflows).
+Stadien eines Wurms:
+\begin{itemize}
+  \item Zielauswahl
+  \item exploit
+  \item Infektion
+  \item Verteilung
+\end{itemize}
+\textbf{Hintertüren und Trojaner} sind nützliche Software, die bösartige Funktionalitäten
+enthalten, z.\,B.:
+\begin{itemize}
+  \item Logging
+  \item Zerstören
+  \item Installation von weiterer Software (DoS clients, root kits)
+\end{itemize}
+\textbf{Manipulation der Identität} (identity spoofing)
+\begin{itemize}
+  \item Angreifer gibt eine andere Identität vor
+  \item normalerweise teilen sich Angreifer und Ziel ein Netzwerksegment
+  \item Angreifer verteilt falsche Informationen über Routen und Namen
+  \item alle Antworten in einem Protokoll können unter spoofing leiden
+\end{itemize}
+\textbf{Denial of Service}
+\begin{itemize}
+  \item Angreifer will einen Dienst überladen und sendet viele Anfragen, die von der
+    Gegenseite nicht rechtzeitig genug bearbeitet werden können
+  \item \emph{böse} Anfragen können aber nicht von normalen unterschieden werden
+  \item Beispiele: HTTP, DNS DoS, SYN Flooding
+\end{itemize}
+\textbf{Botnetzwerk}
+\begin{itemize}
+  \item viele Computer werden aus der Ferne kontrolliert
+  \item für distributed DoS, Berechnungen für kryptografische Prozesse
+    (Schlüssel rückrechnen), Bitcoins minen
+\end{itemize}
+\textbf{Angriffe auf Passwörter und Schlüssel} durch
+\begin{itemize}
+  \item brute force
+  \item Raten, Wörterbuchattacken
+  \item fehlerhafte Implementation, z.\,B. Passwörter im Klartext gespeichert
+\end{itemize}
+\textbf{Port- bzw. Netzwerkscannen}
+\begin{itemize}
+  \item findet Löcher im Sicherheitssystem und passende Ziele
+  \item sniffing, mapping, port scans
+  \item durch Managementprotokolle wie
+    \href{https://de.wikipedia.org/wiki/Simple_Network_Management_Protocol}{SNMP} und
+    \href{https://de.wikipedia.org/wiki/Internet_Control_Message_Protocol}{ICMP}
+\end{itemize}
+\textbf{Session highjacking}
+\begin{itemize}
+  \item Angreifer bricht in eine bestehende Sitzung ein
+\end{itemize}
