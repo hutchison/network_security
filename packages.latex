@@ -57,6 +57,10 @@
 % mehrseitige Tabellen:
 %\usepackage{longtable}
 
+% Zeilenumbrüche in Zellen von Tabellen:
+% z.B.: Text & \makecell{ein sehr \\ sehr langer Text} & kurzer Text\\
+\usepackage{makecell}
+
 % Tabellen mit gedehnten Spalten:
 % \begin{tabularx}{<width>}[<pos>]{<preamble>}
 % ...
@@ -159,7 +163,7 @@
 \usepackage{subcaption}
 
 % um in Tabellen eine Zelle über mehrere Zeilen laufen zu lassen:
-%\usepackage{multirow}
+\usepackage{multirow}
 
 \usepackage{float}
 
@@ -230,40 +234,41 @@
 %\setlength{\epigraphwidth}{0.42\textwidth}
 
 % Definitionen und Sätze:
-%\usepackage[]{amsthm}
+\usepackage[]{amsthm}
 
 % Definitionen, Probleme werden alle mit einem Zeilenumbruch gesetzt, z.B.:
 %   Definition 1 (Graph)
 %   Ein Graph G = (V, E) ist …
-%\newtheoremstyle{bonny}% schottisch für „ansehnlich“
-%  {9pt}% measure of space to leave above the theorem. E.g.: 3pt
-%  {6pt}% measure of space to leave below the theorem. E.g.: 3pt
-%  {}% name of font to use in the body of the theorem
-%  {}% measure of space to indent
-%  {\bfseries}% name of head font
-%  {\smallskip}% punctuation between head and body
-%  {\newline}% space after theorem head; " " = normal interword space
-%  {}% Manually specify head
-%
-%\theoremstyle{bonny}
-%\newtheorem{definition}{Definition}
+\newtheoremstyle{bonny}% schottisch für „ansehnlich“
+  {9pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {6pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {}% measure of space to indent
+  {\bfseries}% name of head font
+  {\smallskip}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {}% Manually specify head
+
+\theoremstyle{bonny}
+\newtheorem{definition}{Definition}
+\newtheorem{axiom}{Axiom}
 %\newtheorem{problem}{Problem}
 
 % Beispiele, Sätze, Theoreme, Lemmata werden alle *ohne* Zeilenumbruch gesetzt, z.B.:
 %   Satz 1  Für alle Graphen gilt …
-%\newtheoremstyle{sweet}%
-%  {9pt}% measure of space to leave above the theorem. E.g.: 3pt
-%  {6pt}% measure of space to leave below the theorem. E.g.: 3pt
-%  {}% name of font to use in the body of the theorem
-%  {}% measure of space to indent
-%  {\bfseries}% name of head font
-%  {}% punctuation between head and body
-%  {1em}% space after theorem head; " " = normal interword space
-%  {}% Manually specify head
-%
-%\theoremstyle{sweet}
+\newtheoremstyle{sweet}%
+  {9pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {6pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {1em}% space after theorem head; " " = normal interword space
+  {}% Manually specify head
+
+\theoremstyle{sweet}
 %\newtheorem{beispiel}{Beispiel}
-%\newtheorem{satz}{Satz}
+\newtheorem{satz}{Satz}
 %\newtheorem{theorem}{Theorem}
 %\newtheorem{lemma}{Lemma}
 %\newtheorem{folgerung}{Folgerung}
@@ -307,6 +312,12 @@
 %}
 
 \newcommand{\BigO}{\mathcal{O}}
+\newcommand{\RealNumbers}{\mathbb{R}}
+\newcommand{\NaturalNumbers}{\mathbb{N}}
+\newcommand{\atleastasgood}{\succsim}
+\newcommand{\notatleastasgood}{\nsuccsim}
+\newcommand{\strictlypreferredto}{\succ}
+\newcommand{\notstrictlypreferredto}{\nsucc}
 
 %\newenvironment{notiz}{
 %  \color{Maroon}
@@ -317,3 +328,7 @@
 
 \newcommand{\happenedbefore}{\rightarrow}
 \newcommand{\causallyindependent}{\parallel}
+
+\newcommand*\circled[1]{%
+  \tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}
+}
