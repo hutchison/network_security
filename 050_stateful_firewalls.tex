@@ -1,0 +1,35 @@
+\section{Stateful Firewalls}%
+\label{sec:stateful_firewalls}
+
+\subsection{Funktionsweise}%
+\label{sub:funktionsweise}
+
+Stateful Firewalls \emph{kennen} den Zustand der Verbindungen und \emph{wissen} welche
+Pakete in diesem Zustand erwartet werden.
+Darauf können Regeln definiert werden, die nur in bestimmten Zuständen aktiv werden.
+Stateful Firewalls arbeiten hauptsächlich auf dem transport layer (OSI Layer 4), aber auch
+auf höheren Layern (OSI Layer $> 4$, wird dann \emph{stateful inspection}) genannt.
+Zur Erinnerung: TCP ist Layer 4, HTTP arbeitet auf application layer (7).
+
+\paragraph{Multi-layer inspection}%
+
+Viele Protokolle basieren auf Protokollen einer geringeren Ebene.
+Eine stateful Firewall kann mehrere Ebenen überwachen.
+
+\paragraph{Neue Protokolle}%
+
+Neue Protokolle müssen für die Konfiguration der Firewall beachtet werden.
+Ein Beispiel sind Multimediaprotokolle, die viele Verbindungen zu externen Computern
+herstellen, nachdem die initiale Verbindung hergestellt wurde.
+
+\paragraph{Probleme}%
+\label{par:probleme}
+
+Hochperformante Firewalls brauchen manchmal geclusterte Hardware, aber stateful Firewalls
+können nicht so einfach geclustert werden, da sie über einen gemeinsamen Zustand verfügen
+müssen.
+
+Wie können stateless Protokolle (UDP, DNS, ICMP, HTTP) von stateful Firewalls
+gehandhabt werden?
+Auch stateless Protokolle definieren, welche Pakete erwartet werden.
+Mittels Timeouts können Pseudoverbindungen erzeugt werden.
