@@ -314,6 +314,7 @@
 \newcommand{\BigO}{\mathcal{O}}
 \newcommand{\RealNumbers}{\mathbb{R}}
 \newcommand{\NaturalNumbers}{\mathbb{N}}
+\newcommand{\Integers}{\mathbb{Z}}
 \newcommand{\atleastasgood}{\succsim}
 \newcommand{\notatleastasgood}{\nsuccsim}
 \newcommand{\strictlypreferredto}{\succ}
