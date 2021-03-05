@@ -1,0 +1,84 @@
+\section{Proxy Firewalls}%
+\label{sec:proxy_firewalls}
+
+Bisher können wir nur einzelne Pakete filtern.
+Wie können aber noch nicht die Inhalte der Verbindung filtern (z.\,B. Downloads).
+Dafür braucht man Proxies.
+
+Ein Proxy agiert für den internen Client und den externen Server.
+Auf ihm laufen nur ein paar sichere und vertrauenswürdige Programme.
+Ein Proxy kann die Inhalte der Verbindung bzw. der Pakete verändern, was zu ethischen
+Problemen führen kann.
+
+\subsection{Arten von Proxies}%
+\label{sub:arten_von_proxies}
+
+\paragraph{Forward Proxy}%
+\label{par:forward_proxy}
+
+Der Client befindet sich im internen Netzwerk und startet die Verbindung zum externen
+Server.
+Der Proxy nimmt die Verbindung entgegen und startet eine eigene Verbindung zum Server.
+
+\paragraph{Reverse Proxy}%
+\label{par:reverse_proxy}
+
+Der Client befindet sich im externen Netzwerk und startet die Verbindung zum internen
+Server.
+Der Proxy nimmt die Verbindung entgegen und startet eine eigene Verbindung zum Server.
+Wird benutzt um Dienste abzusichern, da jeder eingehende Traffic vom Proxy überwacht wird.
+
+\subsection{Funktionsweise}%
+\label{sub:funktionsweise}
+
+Siehe \hyperlink{sub:arten_von_proxies}{Arten von Proxies}.
+Client und Server agieren niemals direkt miteinander.
+
+Proxies können transparent oder intransparent sein.
+Hier sind sie immer intransparent.
+Die Clients müssen daher für Proxies konfiguriert werden, damit alles funktioniert.
+
+Bei \emph{application level proxies} wird für jeden Dienst ein Proxy implementiert, sodass
+nur bestimmter Traffic erlaubt ist, wie z.\,B.:
+\begin{itemize}
+  \item bestimmte Nutzer (wäre mit transparenten Firewalls unmöglich)
+  \item bestimmte Adressen
+  \item bestimmte Computer
+\end{itemize}
+
+Beispiel: \href{https://de.wikipedia.org/wiki/SOCKS}{SOCKS}
+
+Da ein Proxy von Außen erreichbar ist, muss er gegen Angriffe abgehärtet sein.
+Proxies sind normalerweise dual-homed (haben zwei Netzwerkschnittstellen).
+Die interne Struktur des Netzwerks bleibt verborgen.
+Auch passives Fingerprinting ist unmöglich (OS-Erkennung durch die Standardeinstellungen
+bei Paketen wie z.\,B. \href{https://de.wikipedia.org/wiki/Time_to_Live}{TTL},
+\href{https://de.wikipedia.org/wiki/TCP_Receive_Window}{TCP Receive Window Size},
+TCP Optionen).
+Ein \emph{bastion host} liefert nur die nötigsten Infos und bietet höchste Sicherheit.
+
+\paragraph{Probleme}
+
+Proxies haben Probleme mit verschlüsselten Verbindungen.
+Wenn der Proxy Zugriff auf den Inhalt haben will, muss er diesen entschlüsseln, was aber
+dank Ende-zu-Ende-Verschlüsselung unmöglich ist.
+
+\paragraph{Vor- und Nachteile}%
+\label{par:vor_und_nachteile}
+
+Vorteile:
+\begin{itemize}
+  \item interne Struktur bleibt vor der externen Welt verborgen
+  \item Traffic kann einfach überwacht werden
+  \item nutzerbasierte Sicherheit ist möglich, Authentifizierung kann implementiert werden
+  \item Spoofing wird verhindert, da der Proxy den ganzen Traffic der Außenwelt erzeugt
+\end{itemize}
+
+Nachteile:
+\begin{itemize}
+  \item Performance reduction
+  \item Proxy ist ein single point of failure/attack
+  \item application proxies müssen für jede Application entwickelt werden
+  \item Software muss angepasst werden
+  \item bastion host muss gehärtet werden
+\end{itemize}
