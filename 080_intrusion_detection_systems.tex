@@ -1,0 +1,75 @@
+\section{Intrusion Detection Systems}%
+\label{sec:intrusion_detection_systems}
+
+IDS sind eine weitere Möglichkeiten um herauszufinden, was im Netzwerk abläuft.
+Ein IDS verhindert keine Angriffe, aber erkennt Indizien für welche.
+
+Ein IDS \emph{schüffelt} (sniffs) den Traffic, analysiert ihn und sucht nach Spuren für
+\begin{itemize}
+  \item Scans
+  \item Aufklärungsaktivitäten
+  \item Exploits
+\end{itemize}
+Dabei ist ein IDS voll transparent.
+
+\subsection{Motivation}%
+\label{sub:motivation}
+
+Ohne ein IDS würden Admins Angriffe überhaupt nicht bemerken.
+Folgende Infos werden gebraucht:
+\begin{itemize}
+  \item Welche Güter (assets) wurden angegriffen?
+    Welcher Host wurde angreiffen?
+    Server, Medien, User devices, Personen?
+  \item Welche Daten wurden kompromittiert?
+    Persönliche, medizinische, Logindaten, Zahlungen?
+  \item Welche Methode wurde zum Angriff genutzt?
+    Welcher Angriffsvektor wurde gewählt?
+    Webseite, physisch, Backdoor?
+\end{itemize}
+Angriffe brauchen meist mehrere Einzelschritte, daher könnten Folgeschritte vermieden
+werden.
+
+\subsection{Anwendungen}%
+\label{sub:anwendungen}
+
+\begin{itemize}
+  \item Betrugserkennung für Kreditkarten anhand der Zahlungsgeschichte.
+  \item Einbruchserkennung durch Erkennung unnormalen Verhaltens.
+\end{itemize}
+
+\subsection{Typen}%
+\label{sub:typen}
+
+\paragraph{Netzwerkbasiert}%
+\label{par:netzwerkbasiert}
+
+Die Sensoren eines NIDS werden an bestimmten Punkten im Netzwerk (z.\,B. hinter der
+Firewall) platziert und beobachten den Traffic von und zu allen Geräten.
+
+\paragraph{Hostbasiert}%
+\label{par:hostbasiert}
+
+Ein HIDS läuft auf einzelnen Hosts/Geräten im Netzwerk und beobachten nur den Traffic des
+Hosts.
+
+\subsection{Methoden}%
+\label{sub:methoden}
+
+Um unnormalen Traffic zu erkennen werden z.\,B. \emph{statistische} Methoden benutzt.
+Als Parameter nimmt man bspw: Ziel, Datenrate, Ports und Zeit.
+Dann benutzt man Bayesianische Filter um die Wahrscheinlichkeit (likelihood) von Traffic
+zu berechnen unnormal zu sein.
+Diese Filter werden an normalem Traffic trainiert.
+
+Eine andere Möglichkeit ist die Signaturerkennung.
+Dabei werden Pakete nach bestimmten Mustern durchsucht.
+Ein Beispiel: ein HTTP Request enthält
+\begin{verbatim}
+  get /scripts/..%c0%af../winnt/system32/cmd.exe?c+dir
+\end{verbatim}
+Dies wurde vom Nimda-Wurm benutzt um bestimmte Versionen von MS IIS zu exploiten.
+
+Bei diesen Methoden kommt es immer zu falsch positiven und falsch negativen Warnung.
+Wenn dies zu oft vorkommt, entsteht eine gewisse Ignoranz bei den Administratoren.
+Daher müssen solche Regeln stetig verfeinert werden.
