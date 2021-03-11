@@ -1,0 +1,64 @@
+\section{Hardware Security Modules}%
+\label{sec:hardware_security_modules}
+
+Für eine CA müssen die privaten Schlüssel sicher gelagert werden.
+Nur die richtigen Personen dürfen auf die Schlüssel zugreifen.
+Die Schlüssel dürfen nicht verändert werden und müssen gegen Diebstahl und Verlust
+geschützt werden.
+Dabei reicht es nicht aus, die Schlüssel als normale Datei auf einer Festplatte zu
+speichern, da dies bestimmte Angriffe erlaubt.
+
+\subsection{Speicherung eines Schlüssels}%
+\label{sub:speicherung_eines_schlussels}
+
+Schlüssel können entweder eingegeben werden, wenn das Gerät gestartet wurde, oder sie
+können in einem Festspeicher (HDDs, SSDs, ROMs, Silikonstrukturen, RAM) gespeichert
+werden.
+Wenn sie aber irgendwo abgespeichert werden, sind sie anfällig für Lauschangriffe
+(\emph{eavesdropping)}.
+
+Dafür gibt’s jetzt spezielle Module: Hardware Security Module.
+Ein HSM ist ein physikalisches Rechengerät (physical computing device),
+das digitale Schlüssel verwaltet und schützt,
+Verschlüsselungs- und Entschlüsselungsfunktionen für digitale Signaturen,
+starke Authentifizierung und andere kryptographische Funktionen ausführt.
+Das sind normalerweise Einsteckkarten oder externe Geräte, die man an einen Rechner oder
+einen Netzwerkserver anschließt.
+Ein HSM enthält einen oder mehrere sichere Kryptoprozessorchips.
+Man kann einen Schlüssel auf dem HSM erzeugen, aber es gibt keine Funktionen, um die
+Schlüssel zu extrahieren.
+Einfaches Beispiel: eine Kreditkarte mit NFC.
+
+\subsection{Funktionen eines HSM}%
+\label{sub:funktionen_eines_hsm}
+
+Sie erzeugen onboard kryptographische Schlüssel.
+Dafür sind viele Zufallszahlen nötig und richtige Zufallszahlen sind auf einem
+deterministischem Computer schwierig zu erzeugen.
+Sie speichern die Schlüssel sicher ab – zumindest die sensitivsten Schlüssel (master
+keys).
+Sie führen die Verschlüsselung oder digitale Signierung aus.
+
+Wichtig ist dabei: achte auf Seitenkanalangriffe!
+
+\subsection{Backup eines Schlüssels}%
+\label{sub:backup_eines_schlussels}
+
+Dabei gibt es zwei Methoden:
+die \emph{multiple custodians method}
+und die \emph{single custodian method}.
+
+\paragraph{multiple custodians}%
+\label{par:multiple_custodians}
+
+Der Schlüssel wird in Teile gespalten und auf mehrere Verwahrer (custodians) verteilt.
+Die Teile werden von einem zweiten zufällig gewählten Schlüssel (wrapping key)
+verschlüsselt (verpackt).
+Zur Wiederherstellung werden entweder beim Standardverfahren alle Verwahrer
+oder bei einem $N$ aus $M$ Schema ein bestimmtes Minimum der Verwahrer benötigt.
+
+\paragraph{single custodian}%
+\label{par:single_custodian}
+
+Hierbei wird der Schlüssel von einem speziell ausgewählten Schlüssel (wrapping key)
+verschlüsselt.
