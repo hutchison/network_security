@@ -1,0 +1,83 @@
+\section{Policies}%
+\label{sec:policies}
+
+Was ist eine Policy?
+Eine Sicherheitspolicy definiert, was getan werden muss um auf Computern gespeicherte
+Informationen zu schützen.
+Sie definiert \emph{was} zu tun ist und \emph{wie} es evaluiert werden kann.
+Wenn man nicht wahrnimmt, dass Policies missachtet werden, dann sind sie sinnlos.
+Daher müssen sie evaluiert werden.
+Eine Policy wird normalerweise aufgeschrieben.
+
+Die Regeln einer Firewall repräsentieren eine Policy, sodass
+\begin{itemize}
+  \item alles verboten ist, außer es ist explizit erlaubt;
+  \item alles erlaubt ist, außer es ist explizit verboten.
+\end{itemize}
+Die Wahrheit ist: alles ist verboten,
+außer es ist explizit erlaubt oder es kommt trotzdem durch.
+
+\subsection{Komplexität von Policies}%
+\label{sub:komplexitat_von_policies}
+
+Policies werden von Menschen definiert und befolgt.
+Daher müssen sie verständlich sein.
+Wenn sie zu komplex sind, dann sind sie nicht durchsetzbar.
+
+Ein anderes Extrem ist jedoch: „Firmencomputer dürfen nicht für den persönlichen Gebrauch
+genutzt werden!“
+Diese Regel ist zu simpel und zu uneindeutig und daher nicht durchsetzbar.
+
+Besser ist:
+\begin{itemize}
+  \item Sende keine Kettenbriefe.
+  \item Sende keine Dateien.
+  \item Nutze keine Pornoseiten.
+\end{itemize}
+
+\subsection{Entwicklung von Policies}%
+\label{sub:entwicklung_von_policies}
+
+Best practice:
+\begin{enumerate}
+  \item Risiken identifizieren
+  \item Kommuniziere Funde
+  \item erstelle oder aktualisiere Policies
+  \item bestimme die Zustimmung der Policy mit den Mitarbeitern
+  \item versuche eine \emph{Kultur} zu erschaffen
+\end{enumerate}
+
+\paragraph{Risiken identifizieren}%
+
+Mach eine Sicherheitsanalyse: bestimme kritische Daten und Systeme und analysiere die
+normale Nutzung des Netzwerks.
+Schreib es auf.
+
+\paragraph{Kommuniziere Funde}%
+
+Berichte an’s Management: einfach, balanciert, kurz, zeige nicht auf einzelne Personen,
+halte dich allgemein.
+
+\paragraph{Erstelle oder aktualisiere Policies}%
+
+Schreib sie auf und zwar spezifisch und klar.
+Was muss gemacht werden?
+Warum?
+Wer ist verantwortlich?
+
+Niemand liest mehr als 10 Seiten von Policies.
+SMART: specific, measurable, achievable, realistic, time-based.
+
+\paragraph{Bestimme die Zustimmung der Policy}%
+
+Wenn eine Regel nicht messbar ist, dann ist sie nicht durchsetzbar.
+Mögliche Inspektionen (audits): Stichproben, Analyse der Logfiles, Festplatten
+durchsuchen.
+Aber behalte den menschlichen Aspekt im Auge.
+Niemand möchte gerne seine Browserhistory preisgeben.
+
+\paragraph{Kulturelle Aspekte}%
+
+Rede mit den Nutzern über die Risiken.
+Erkläre die Policy bevor sie durchgesetzt wird.
+Versuche „Anordnungen“ und authoritäres Verhalten zu vermeiden.
