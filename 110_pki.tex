@@ -1,0 +1,64 @@
+\section{Public Key Infrastructure}%
+\label{sec:public_key_infrastructure}
+
+Wofür brauchen wir sowas?
+Um Schlüssel zu signieren (Zertifikate erstellen), zu verteilen und falls nötig
+zurückzuziehen.
+Dies ist nötig um Man-in-the-middle Angriffe zu vereiteln.
+
+Eine PKI erzeugt, verteilt und erklärt Zertifikate für ungültig.
+Sie unterstützt die sichere Kommunikation und die Handhabung von rechtlich bindenen
+Dokumenten (Signaturen, Unleugbarkeit).
+Es liefert Dienste für sichere Zeitstempel.
+Weiterhin kann es beim Privilegienmanagement helfen bzgl. der Authorisierung (nicht
+Authentifizierung!).
+Sie kann auch Teil von einem Digital Rights Management Systems sein.
+
+Das Wesen von Public Key Krypto ist, dass ein Schlüssel zum Verschlüsseln und ein anderer
+Schlüssel zum Entschlüsseln benutzt wird.
+Der öffentliche Schlüssel muss dabei authentifiziert werden, damit nachgewiesen ist, dass
+auch wirklich die Person dahintersteckt, die sie vorgibt zu sein.
+Eine Certificate Authority (CA) übernimmt dabei diesen Signierungsprozess.
+
+\subsection{Certificate Revocation}%
+\label{sub:certificate_revocation}
+
+Was passiert, wenn private Schlüssel verloren gehen oder gestohlen werden?
+Verlorene private Schlüssel können nicht wiederhergestellt werden.
+Gestohlene private Schlüssel sind ein Sicherheitsrisiko.
+
+Also müssen neue Schlüssel erzeugt und die alten widerrufen werden (revoke).
+Die Kommunikationspartner müssen dabei informiert werden, dass die widerrufenen Schlüssel
+nicht mehr benutzt werden.
+Dafür bietet eine PKI eine Liste von widerrufenen Schlüsseln: die Certificate Revocation
+List (CRL).
+Beispiel: \url{http://crl.verisign.com/Class3InternationalServer.crl}
+
+\subsection{Certificate Distribution}%
+\label{sub:certificate_distribution}
+
+Wie kommen die Kommunikationspartner an die jeweiligen Schlüssel des anderen?
+Sie können sich z.\,B. die Schlüssel einfach gegenseitig schicken.
+Das funktioniert, weil die CA die Gültigkeit der Schlüssel gewährleistet.
+Die Schlüssel können aber auch über eine Certificate Management Facility verwaltet werden,
+sodass sich die Partner die Schlüssel problemlos herunterladen können.
+
+Dafür wird normalerweise X.509 und LDAP genutzt.
+X.509 wird dabei genutzt, um die Interoperabilität zwischen verschiedenen Anwendungen zu
+gewährleisten (Webserver, E-Mail, VPN-Gateways).
+Ein X.509 Zertifikat enthält dabei bspw. folgende Informationen:
+\begin{itemize}
+  \item Version
+  \item Seriennummer
+  \item Signatur
+  \item ausstellende CA
+  \item ID der ausstellenden CA
+  \item Gültigkeitsdauer
+  \item Inhaber
+  \item Schlüsselinformationen des Inhabers: Public-Key-Algorithmus, Public-Key des
+    Inhabers
+  \item genutzter Signaturalgorithmus
+  \item Signatur
+\end{itemize}
+
+Andere Formate: Public Key Cryptography Standards (PKCS).
