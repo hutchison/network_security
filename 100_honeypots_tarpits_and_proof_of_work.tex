@@ -1,0 +1,66 @@
+\section{Honeypots, Tarpits und Proof of Work}%
+\label{sec:honeypots_tarpits_und_proof_of_work}
+
+\subsection{Honeypots}%
+\label{sub:honeypots}
+
+\begin{definition}
+  Ein \emph{Honeypot} ist ein Sicherheitsmechanismus, der unauthorisierte Nutzungsversuche
+  von Informationssystemen erkennen, ablenken und in gewisser Weise entgegenwirken soll.
+\end{definition}
+
+Im Unterschied zu einem IDS ist ein Honeypot aktiv, während ein IDS passiv ist.
+
+Es gibt Honeypots aus Forschungszwecken bspw. für Anti-Viren-Software, der über neue Viren
+und Varianten lernen will.
+Netzwerkadmins wollen Informationen über aktuelle Bedrohungen sammeln und nutzen
+normalerweise ein großes verteiltes Netzwerk von Fallen (auch als \emph{Honeynet}
+bekannt).
+Im produktiven Einsatz sollen Honeypots die Aufmerksamkeit von gut bekannten Angriffen auf
+sich lenken und vom eigentlich Ziel ablenken.
+Das ist nicht wirklich eine akzeptable Methode aus der Sicherheitsperspektive, aber es
+hilft.
+
+\paragraph{Wirkprinzipien}%
+\label{par:wirkprinzipien}
+
+Honeypots verhalten sich wie ein richtiges System.
+Einem Angreifer sollte nicht auffallen, dass er mit einem Honeypot interagiert.
+Sie zeichnen alle Nutzeraktionen auf, sodass Admins diese Spuren genau verfolgen können.
+Danach analyieren Admins diese Angriffsmuster.
+
+Honeynets beobachten nur die Netzwerkaktivitäten.
+
+Spam traps sind veröffentlichte E-Mail-Adressen, die nur Spam anziehen sollen.
+Die Trainingsdaten können später zur Spamerkennung genutzt werden.
+
+Virus traps beobachten alle Virenaktivitäten in einer sand box.
+
+Ein tarpit ist wie ein Honeypot, nur dass aktive Funktionen besitzt.
+Er verlangsamt Angreifer, indem künstliche Wartezeiten in Protokollen eingebaut werden.
+Damit werden die Kosten von Angriffen erhöht.
+
+\paragraph{Proof of Work}%
+\label{par:proof_of_work}
+
+Ein POW-System fügt jedem Dienst einen gewissen Preis hinzu.
+Dies kann bspw. CPU-Zeit für die Lösung eines Problems sein, welches sogar praktischen
+Nutzen haben könnte.
+Die Lösung des Problem muss aber schnell überprüfbar sein.
+
+Beispiel: Wurzel modulo $p$.
+Wähle eine Primzahl $p$ mit vernünftiger Größe (bspw. $1024$ bits).
+Die Aufgabe besteht daraus zu einem gegebenen $x$ eine Zahl $y$ zu finden mit
+$y^2 \equiv x \mod p$.
+Sei bspw. $p=97$ und $x=50$, dann ist $y=27$.
+
+Das kostet natürlich Energie, aber dämmt Spam ein.
+Lohnt sich das?
+Energie ist dabei die Währung.
+
+Mit Application Specific Integrated Circuits (ASICs) können solche schwierigen Probleme
+schneller gelöst werden.
+Das führt zu einem Katz-und-Maus-Spiel.
+
+Diese Arbeit kann für andere Angriffe benutzt werden (bspw. können CAPTCHAs ausgenutzt
+werden).
