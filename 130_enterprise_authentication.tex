@@ -1,0 +1,40 @@
+\section{Enterprise Authentication}%
+\label{sec:enterprise_authentication}
+
+\begin{definition}
+  \emph{Authentifizierung} ist der Prozess die Identität oder eine Eigenschaft (claim)
+  von einer Entität (bspw. einer Person) nachzuweisen.
+\end{definition}
+
+\subsection{Prinzipien}%
+\label{sub:prinzipien}
+
+\begin{description}
+  \item[wissensbasiert] PIN, Passwort, persönliche Informationen
+  \item[besitzbasiert] SmartCard / SIM Karte, Kreditkarte, Schlüssel, RFID Token, Telefon,
+    PC, DRM Modul
+  \item[biometrisch] Retina, Iris, Fingerabdruck, DNA, Stimme, Unterschrift
+\end{description}
+Die Sicherheit wird durch Zwei-Faktor-Authentifizierung weiter verbessert, indem zwei
+Methoden kombiniert werden.
+
+Probleme der einzelnen Prinzipien:
+\begin{description}
+  \item[wissensbasiert] die Nutzer wählen ein schwaches Passwort,
+    Nutzer vergessen die Passwörter, Passwort wurde anderweitig kompromittiert
+  \item[besitzbasiert] Nutzer verlieren Token, Token wird kopiert
+  \item[biometrisch] bestimmte biometrische Eigenschaften können kopiert werden,
+    hat ethische Probleme (DNA liefert Aufschlüsse über Gesundheitszustand),
+    schwierig zu handhaben
+\end{description}
+
+\subsection{Implementierungen}%
+\label{sub:implementierungen}
+
+\subsubsection{Kerberos}
+
+Hier wird Authentifizierung und Authorisierung und der eigentliche Dienst voneinander
+getrennt.
+
+
+\subsubsection{RADIUS}
